@@ -1,0 +1,3 @@
+FOUND_ANY_FORTRAN=Yes
+FMODULESOURCES=/home/jujuu/exahype/ExaHyPE-Engine/./AstroApplications/CCZ4/FV/typesDef.f90 /home/jujuu/exahype/ExaHyPE-Engine/./AstroApplications/CCZ4/FV/Fortran/recipies.f90 
+FSOURCES=/home/jujuu/exahype/ExaHyPE-Engine/./AstroApplications/CCZ4/FV/Fortran/PDE.f90 /home/jujuu/exahype/ExaHyPE-Engine/./AstroApplications/CCZ4/FV/Fortran/Init.f90 /home/jujuu/exahype/ExaHyPE-Engine/./AstroApplications/CCZ4/FV/Fortran/ADMConstraints.f90 /home/jujuu/exahype/ExaHyPE-Engine/./AstroApplications/CCZ4/FV/Fortran/AdjustSolution.f90 /home/jujuu/exahype/ExaHyPE-Engine/./AstroApplications/CCZ4/FV/Fortran/GAUSS.f90 /home/jujuu/exahype/ExaHyPE-Engine/./AstroApplications/CCZ4/FV/Fortran/Psi4.f90 
