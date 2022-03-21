@@ -1,0 +1,156 @@
+{
+  "project_name": "FOCCZ4",
+  "compiler_flags": "-DCCZ4EINSTEIN",
+  "paths": {
+    "peano_kernel_path": "./Peano",
+    "exahype_path": "./ExaHyPE",
+    "output_directory": "./AstroApplications/FOCCZ4_ADS3",
+    "log_file": "logfile.log"
+  },
+  "architecture": "snb",
+  "computational_domain": {
+    "dimension": 2,
+    "end_time": 101.0,
+    "offset": [
+      0.0,
+      0.0
+    ],
+    "width": [
+      1.0,
+      1.0
+    ]
+  },
+  "shared_memory": {
+    "cores": 2,
+    "properties_file": "sharedmemory.properties",
+    "autotuning_strategy": "dummy",
+    "background_job_consumers": 1
+  },
+  "optimisation": {
+    "fuse_algorithmic_steps": "all",
+    "fuse_algorithmic_steps_rerun_factor": 0.99,
+    "fuse_algorithmic_steps_diffusion_factor": 0.99,
+    "spawn_predictor_as_background_thread": true,
+    "spawn_update_as_background_thread": false,
+    "spawn_amr_background_threads": true,
+    "disable_vertex_exchange_in_time_steps": true,
+    "time_step_batch_factor": 0.0,
+    "disable_metadata_exchange_in_batched_time_steps": true,
+    "double_compression": 0.0,
+    "spawn_double_compression_as_background_thread": false
+  },
+"solvers": [
+    {
+      "type": "Finite-Volumes",
+      "name": "FOCCZ4Solver",
+      "patch_size": 10,
+      "maximum_mesh_size": 0.033339,
+      "maximum_mesh_depth": 0,
+      "time_stepping": "global",
+      "fv_kernel": {
+        "language": "C",
+        "terms": [
+          "ncp",
+          "source"
+        ],
+        "scheme": "musclhancock",
+        "implementation": "generic"
+      },
+      "variables": [
+        {
+          "name": "G",
+          "multiplicity": 6
+        },
+        {
+          "name": "K",
+          "multiplicity": 6
+        },
+        {
+          "name": "theta",
+          "multiplicity": 1
+        },
+        {
+          "name": "Z",
+          "multiplicity": 3
+        },
+        {
+          "name": "lapse",
+          "multiplicity": 1
+        },
+        {
+          "name": "shift",
+          "multiplicity": 3
+        },
+        {
+          "name": "b",
+          "multiplicity": 3
+        },
+        {
+          "name": "dLapse",
+          "multiplicity": 3
+        },
+        {
+          "name": "dxShift",
+          "multiplicity": 3
+        },
+        {
+          "name": "dyShift",
+          "multiplicity": 3
+        },
+        {
+          "name": "dzShift",
+          "multiplicity": 3
+        },
+        {
+          "name": "dxG",
+          "multiplicity": 6
+        },
+        {
+          "name": "dyG",
+          "multiplicity": 6
+        },
+        {
+          "name": "dzG",
+          "multiplicity": 6
+        },
+        {
+          "name": "traceK",
+          "multiplicity": 1
+        },
+        {
+          "name": "phi",
+          "multiplicity": 1
+        },
+        {
+          "name": "P",
+          "multiplicity": 3
+        },
+        {
+          "name": "K0",
+          "multiplicity": 1
+        },
+        {
+          "name": "domain",
+          "multiplicity": 1
+        },
+        {
+          "name": "pos",
+          "multiplicity": 3
+        }
+      ],
+    "parameters": {
+        "reference": "AdS3"
+      },
+    "plotters": [
+    {
+    "type": "vtk::Cartesian::vertices::ascii",
+          "name": "ConservedWriter",
+          "time": 0.0,
+          "repeat": 0.01,
+          "output": "./vtk-output/conserved",
+          "variables": 59
+    }
+      ]
+    }
+  ]
+}
